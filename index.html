@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Wave Studio</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--bg: #f4efe7;
+				--card: #fff9f1;
+				--ink: #1e1f24;
+				--muted: #5f616b;
+				--accent: #ff7a18;
+				--accent-2: #2ec4b6;
+				--line: #ded4c5;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				color: var(--ink);
+				font-family: "Noto Sans KR", sans-serif;
+				background:
+					radial-gradient(circle at 10% 10%, #fff4dd 0 24%, transparent 25%),
+					radial-gradient(circle at 90% 12%, #d6fff2 0 18%, transparent 19%),
+					linear-gradient(160deg, #f8f1e6, #f1f6f7 60%, #f5ece2);
+			}
+
+			.wrap {
+				width: min(1100px, 92vw);
+				margin: 0 auto;
+			}
+
+			header {
+				padding: 22px 0;
+			}
+
+			nav {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+			}
+
+			.logo {
+				font-family: "Space Grotesk", sans-serif;
+				font-size: 1.35rem;
+				font-weight: 700;
+				letter-spacing: 0.06em;
+			}
+
+			.logo span {
+				color: var(--accent);
+			}
+
+			.menu {
+				display: flex;
+				gap: 18px;
+				color: var(--muted);
+				font-size: 0.95rem;
+			}
+
+			.menu a {
+				color: inherit;
+				text-decoration: none;
+			}
+
+			.hero {
+				display: grid;
+				grid-template-columns: 1.1fr 0.9fr;
+				gap: 26px;
+				align-items: stretch;
+				margin-top: 18px;
+			}
+
+			.hero-main,
+			.hero-side {
+				border: 1px solid var(--line);
+				border-radius: 28px;
+				background: rgba(255, 250, 244, 0.75);
+				backdrop-filter: blur(5px);
+			}
+
+			.hero-main {
+				padding: 42px;
+			}
+
+			.tag {
+				display: inline-block;
+				background: #ffe4ce;
+				color: #8a4b12;
+				border-radius: 999px;
+				padding: 8px 13px;
+				font-size: 0.86rem;
+				font-weight: 600;
+			}
+
+			h1 {
+				margin: 18px 0 14px;
+				font-family: "Space Grotesk", sans-serif;
+				font-size: clamp(2rem, 4.5vw, 3.4rem);
+				line-height: 1.05;
+			}
+
+			.hero-main p {
+				margin: 0;
+				color: var(--muted);
+				line-height: 1.7;
+			}
+
+			.actions {
+				margin-top: 28px;
+				display: flex;
+				gap: 12px;
+				flex-wrap: wrap;
+			}
+
+			.btn {
+				border: 0;
+				border-radius: 14px;
+				font-weight: 700;
+				cursor: pointer;
+				padding: 12px 18px;
+				font-family: inherit;
+			}
+
+			.btn.primary {
+				background: linear-gradient(120deg, var(--accent), #ff9a3c);
+				color: #fff;
+			}
+
+			.btn.secondary {
+				background: #ffffff;
+				color: #262626;
+				border: 1px solid var(--line);
+			}
+
+			.hero-side {
+				padding: 24px;
+				display: grid;
+				grid-template-rows: 1fr auto;
+				gap: 14px;
+			}
+
+			.mock {
+				border-radius: 22px;
+				border: 1px solid #e8dccd;
+				background: linear-gradient(145deg, #fffaf2 10%, #ffe8d5 45%, #e4fff9);
+				padding: 18px;
+			}
+
+			.mock-top {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 14px;
+				color: #7d7973;
+				font-size: 0.9rem;
+			}
+
+			.bars {
+				display: grid;
+				gap: 10px;
+			}
+
+			.bar {
+				height: 10px;
+				border-radius: 999px;
+				background: #f3d6b7;
+			}
+
+			.bar:nth-child(2) {
+				width: 84%;
+				background: #bfeee8;
+			}
+
+			.bar:nth-child(3) {
+				width: 58%;
+			}
+
+			.mini-stats {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 10px;
+			}
+
+			.mini-stats div {
+				background: var(--card);
+				border: 1px solid var(--line);
+				border-radius: 14px;
+				padding: 12px;
+				text-align: center;
+			}
+
+			.mini-stats strong {
+				display: block;
+				font-family: "Space Grotesk", sans-serif;
+				font-size: 1.1rem;
+			}
+
+			section.features {
+				margin: 44px 0 30px;
+			}
+
+			.section-title {
+				font-family: "Space Grotesk", sans-serif;
+				margin: 0 0 14px;
+				font-size: 1.5rem;
+			}
+
+			.grid {
+				display: grid;
+				gap: 14px;
+				grid-template-columns: repeat(3, 1fr);
+			}
+
+			.card {
+				border: 1px solid var(--line);
+				background: var(--card);
+				border-radius: 20px;
+				padding: 20px;
+			}
+
+			.card h3 {
+				margin: 0 0 8px;
+				font-size: 1.05rem;
+			}
+
+			.card p {
+				margin: 0;
+				color: var(--muted);
+				line-height: 1.6;
+				font-size: 0.95rem;
+			}
+
+			.highlight {
+				margin: 26px 0 52px;
+				border: 1px solid #d5cab8;
+				border-radius: 24px;
+				padding: 28px;
+				background: linear-gradient(110deg, #fff5e9, #ecfffa);
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 16px;
+				flex-wrap: wrap;
+			}
+
+			.highlight b {
+				font-family: "Space Grotesk", sans-serif;
+				font-size: 1.4rem;
+			}
+
+			footer {
+				padding: 14px 0 32px;
+				color: #7a746d;
+				font-size: 0.92rem;
+			}
+
+			@keyframes rise {
+				from {
+					transform: translateY(12px);
+					opacity: 0;
+				}
+				to {
+					transform: translateY(0);
+					opacity: 1;
+				}
+			}
+
+			.hero-main,
+			.hero-side,
+			.card,
+			.highlight {
+				animation: rise 600ms ease both;
+			}
+
+			.card:nth-child(2) {
+				animation-delay: 70ms;
+			}
+
+			.card:nth-child(3) {
+				animation-delay: 140ms;
+			}
+
+			@media (max-width: 900px) {
+				.hero {
+					grid-template-columns: 1fr;
+				}
+
+				.grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header class="wrap">
+			<nav>
+				<div class="logo">WAVE <span>STUDIO</span></div>
+				<div class="menu">
+					<a href="#">서비스</a>
+					<a href="#">요금</a>
+					<a href="#">문의</a>
+				</div>
+			</nav>
+		</header>
+
+		<main class="wrap">
+			<section class="hero">
+				<article class="hero-main">
+					<span class="tag">NEW • 빠르게 시작하는 웹페이지</span>
+					<h1>한눈에 시선을 잡는<br />브랜드 랜딩 페이지</h1>
+					<p>
+						텍스트와 색감을 단순하게 정리해도, 레이아웃이 좋아 보이면 결과물 품질은 확 올라갑니다.
+						지금 페이지처럼 핵심 메시지, 기능 요약, 행동 유도를 한 화면 흐름으로 구성해보세요.
+					</p>
+					<div class="actions">
+						<button class="btn primary">무료로 시작하기</button>
+						<button class="btn secondary">데모 보기</button>
+					</div>
+				</article>
+
+				<aside class="hero-side">
+					<div class="mock">
+						<div class="mock-top">
+							<span>Dashboard Preview</span>
+							<span>Live</span>
+						</div>
+						<div class="bars">
+							<div class="bar"></div>
+							<div class="bar"></div>
+							<div class="bar"></div>
+						</div>
+					</div>
+					<div class="mini-stats">
+						<div><strong>1.2K</strong>신규 유저</div>
+						<div><strong>92%</strong>만족도</div>
+						<div><strong>4.9</strong>평균 평점</div>
+					</div>
+				</aside>
+			</section>
+
+			<section class="features">
+				<h2 class="section-title">핵심 기능</h2>
+				<div class="grid">
+					<article class="card">
+						<h3>빠른 페이지 구성</h3>
+						<p>복잡한 설정 없이 섹션 단위로 바로 배치하고, 즉시 퍼블리싱할 수 있습니다.</p>
+					</article>
+					<article class="card">
+						<h3>모바일 자동 최적화</h3>
+						<p>화면 너비에 맞춰 레이아웃이 자연스럽게 정리되어 다양한 기기에서 안정적입니다.</p>
+					</article>
+					<article class="card">
+						<h3>브랜드 컬러 적용</h3>
+						<p>CSS 변수로 주요 색상을 손쉽게 바꿔서 원하는 분위기를 빠르게 맞출 수 있습니다.</p>
+					</article>
+				</div>
+			</section>
+
+			<section class="highlight">
+				<b>지금 바로 당신만의 랜딩 페이지를 시작해보세요.</b>
+				<button class="btn primary">프로젝트 만들기</button>
+			</section>
+		</main>
+
+		<footer class="wrap">© 2026 Wave Studio. Crafted for a clean first impression.</footer>
+	</body>
+</html>
