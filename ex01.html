@@ -6,7 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hello world</h1>
+    <h1 id="heading1">hello world</h1>
+
+    <script>
+        //DOM : 파일의 글자를 html로 바꾸는 것
+        var heading1 = document.getElementById("heading1"); //id로 엘리먼트를 가져오기
+        console.dir(heading1); //엘리먼트의 속성 확인
+        heading1.innerHTML = "안녕하세요"; //엘리먼트의 내용을 바꾸기
+        heading1.style.backgroundColor = "yellow"; //엘리먼트의 스타일 바꾸기
+        heading1.style.color = "red";
+    </script>
     <ul class="nav">
         <li>home</li>
         <li>about</li>
